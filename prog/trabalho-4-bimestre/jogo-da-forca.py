@@ -33,7 +33,16 @@ olhoDireito  = (2, 5)
 
 punicoes = [(cabeca, '0'), (corpo, '|'), (bracoDireito, '\\'), (bracoEsquerdo, '/'), (pernaDireita, '\\'), (pernaEsquerda, '/')]
 
-def exibirBoneco(qtd_erros):
+# Easter Egg
+perguntas_ironicas = ['Você sabe o que é uma letra?', 
+                      'É só UMA Letra', 
+                      'É difícil assim mesmo ou está fingindo?', 
+                      'Isso aí foi uma tentativa? Porque não parece.',
+                      'Se UMA letra te atrapalha, imagina o resto.']
+reacoes_ironicas = ['😊', '🙂', '😐', '😠', '😡']
+max_qtd_erros_ironicos = 5
+
+def exibirBoneco(qtd_erros, letras_usadas):
     possiveis_erros = len(punicoes)
     
     if qtd_erros > 0:
@@ -51,28 +60,47 @@ def exibirBoneco(qtd_erros):
         return False
 
     tentativas_restantes = possiveis_erros - qtd_erros
-    print(f'Tentativas restantes: {tentativas_restantes}\n')
+    print(f'Tentativas restantes: {tentativas_restantes}')
+
+    letras_usadas_str_formatada = ''
+    
+    for i in range(len(letras_usadas)):
+        letra = letras_usadas[i]
+
+        if (i + 1) == len(letras_usadas):
+            letras_usadas_str_formatada += letra
+        else:
+            letras_usadas_str_formatada += letra + ', '
+    
+    if len(letras_usadas) > 0:
+        print(f'Letras usadas:', letras_usadas_str_formatada)
+    else:
+        print(f'Nenhum letra usada ainda')
 
     return True
 
 def verificarPalavra(palavra, palavra_certa):
-    palavra = ''.join(str(x) for x in palavra)
+    palavra_formatada = ''
+    for x in palavra:
+        palavra_formatada += str(x)
+    
+    palavra = palavra_formatada
     
     if palavra == palavra_certa:
         return True
     else:
         return False
 
-def escolherDificuldade():
+def escolherDificuldade(tag):
     dificuldade = int(input(f'''
 Escolha a dificuldade do jogo:
 [1] Dificil ({len(punicoes)} Tentativas)
 [2] Médio ({len(punicoes) + 2} Tentativas)
 [3] Fácil ({len(punicoes) + 4} Tentativas)
 
-$:'''))
+{tag}: '''))
     while dificuldade < 1 or dificuldade > 3:
-        dificuldade = int(input(f'$:'))
+        dificuldade = int(input(f'{tag}: '))
 
     if dificuldade > 1:
         punicoes.append((sapatoEsquerdo, '⅃'))
@@ -92,7 +120,7 @@ def main():
             'Hipopótamo', 'Rinoceronte', 'Lobo', 'Raposa', 'Urso',
             'Canguru', 'Coala', 'Gorila', 'Chimpanzé', 'Antílope',
             'Pinguim', 'Golfinho', 'Tubarão', 'Coruja', 'Águia', 
-            'Galinha', 'Vaca', 'Cobra', 'Piranha', ''
+            'Galinha', 'Vaca', 'Cobra', 'Piranha'
         ],
     }
 
@@ -102,16 +130,20 @@ def main():
     
     # Mostrar para o jogador as informações do jogo 
     print(f'======= JOGO DA FORCA =======')
-    print(f'TEMA: {config['tema']}\n')
+    print(f'''TEMA: {config['tema']}\n''')
 
-    print(f'Escolha uma opção: ')
+    nome = str(input("Digite seu nome: "))
+
+    tag = f"{nome}@jogador:~$"
+
+    print(f'\nEscolha uma opção: ')
     print(f'[1] Iniciar o Jogo')
     print(f'[2] Sair o Jogo')
     
     escolha = ''
     while True:
-        escolha = int(input(f"\n$: "))
-        if escolha == 1 or escolha == 2:
+        escolha = int(input(f"\n{tag}: "))
+        if escolha == 1 or escolha == 2 or escolha == 3:
             break
     
     # Opções iniciais
@@ -121,32 +153,47 @@ def main():
         print(f'Saindo do jogo...\n')
         time.sleep(1)
         return 0
+    elif escolha == 3:
+        print(f"Modo secreto ativado. Bom Jogo!")
 
     # Dificuldade escolhida pelo usuário
-    escolherDificuldade()
+    escolherDificuldade(tag)
         
     erros = 0
+    qtd_erros_ironicos = 0
     resposta = ['_'] * len(palavra)
 
     # Palavras tentadas
-    tentativas = []
+    letras_usadas = []
 
     while True:
-        status = exibirBoneco(erros)
+        status = exibirBoneco(erros, letras_usadas)
         if not status:
             print(f'A palavra certa era {palavra}. Tente novamente!')
             break
 
         ganhou = verificarPalavra(resposta, palavra)
         if ganhou:
-            print(f'Parabéns, Você ganhou o jogo!!!')
+            print(f'\nParabéns, Você ganhou o jogo!!!')
             print(f'Volte sempre...\n')
             return 0
 
         print()
         print('Palavra:', *resposta)
+        
         letra = str(input(f'Digite uma letra: ')).lower()
-        while letra in tentativas:
+        while len(letra) != 1:
+            qtd_erros_ironicos += 1
+            print(f"{reacoes_ironicas[qtd_erros_ironicos]} {perguntas_ironicas[qtd_erros_ironicos]}")
+            time.sleep(1)
+
+            if qtd_erros_ironicos == (max_qtd_erros_ironicos - 1):
+                print("\nTá difícil assistir isso. Boa sorte aí, porque eu tô fora.")
+                return 0
+
+            letra = str(input(f'\nTente novamente: ')).lower()
+            
+        while letra in letras_usadas:
             letra = str(input(f'Essa letra já foi digitada, tente outra: ')).lower()
 
         for i in range(len(palavra)):
@@ -154,7 +201,7 @@ def main():
             if letra_da_palavra == letra:
                 resposta[i] = letra
 
-        tentativas.append(letra)
+        letras_usadas.append(letra)
 
         if letra not in palavra:
             erros += 1
