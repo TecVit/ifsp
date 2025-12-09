@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercadinho Digital</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            background: white;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .sidebar {
+            float: left;
+            width: 220px;
+            margin-right: 20px;
+        }
+
+        .banner {
+            background: url("https://via.placeholder.com/1200x250") center/cover no-repeat;
+            height: 200px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                height: 120px;
+                background-position: top;
+            }
+
+            .sidebar {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+<body class="bg-light">
+
+<div class="container">
+
+    <header class="d-flex justify-content-between align-items-center py-3">
+        <h2 class="text-primary">Mercadinho Digital</h2>
+        <button class="btn btn-primary">Carrinho</button>
+    </header>
+
+    <div class="banner mb-4"></div>
+
+    <div class="clearfix">
+        
+        <aside class="sidebar card p-3">
+            <h5>Categorias</h5>
+            <ul>
+                <li>Frutas</li>
+                <li>Verduras</li>
+                <li>Bebidas</li>
+                <li>Higiene</li>
+                <li>Limpeza</li>
+            </ul>
+        </aside>
+
+        <section class="produtos-grid">
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" class="product-image" alt="">
+                <h5>Banana</h5>
+                <p>Fresca e deliciosa.</p>
+                <button class="btn btn-success btn-block">Comprar</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" class="product-image" alt="">
+                <h5>Maçã</h5>
+                <p>Direto do produtor.</p>
+                <button class="btn btn-success btn-block">Comprar</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" class="product-image" alt="">
+                <h5>Arroz</h5>
+                <p>Pacote 5kg.</p>
+                <button class="btn btn-success btn-block">Comprar</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" class="product-image" alt="">
+                <h5>Feijão</h5>
+                <p>Grãos selecionados.</p>
+                <button class="btn btn-success btn-block">Comprar</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" class="product-image" alt="">
+                <h5>Refrigerante</h5>
+                <p>2 Litros.</p>
+                <button class="btn btn-success btn-block">Comprar</button>
+            </div>
+
+        </section>
+    </div>
+
+</div>
+
+<footer>
+    <p>Mercadinho Digital - 2025</p>
+</footer>
+
+</body>
+</html>

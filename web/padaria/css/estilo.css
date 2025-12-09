@@ -1,0 +1,32 @@
+body {
+    background-image: url("../imagens/pao-frances.jpg");
+    background-repeat: repeat;
+}
+
+#cabecalho {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.destaque {
+    color: green;
+    font-weight: bold;
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cor-dois {
+    color: brown;
+}
+
+@media (max-width: 600px) {
+    #cabecalho {
+        font-size: 16px;
+    }
+}
