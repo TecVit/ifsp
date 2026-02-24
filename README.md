@@ -1,2 +1,12 @@
-### Projetos e Códigos das aulas
-#### Feito por Vitor Silva
+## 📚 (IFSP) Projetos / Códigos das Aulas
+
+| Ano | Status |
+|-----|--------|
+| 1º Ano | ✅ Concluído |
+| 2º Ano | 🚧 Em andamento |
+| 3º Ano | ⏳ Pendente |
+| 4º Ano | ⏳ Pendente |
+
+---
+
+© Feito por Vitor Silva
