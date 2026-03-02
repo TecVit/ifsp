@@ -1,0 +1,27 @@
+Nomes: Vitor Custodio da Silva e Wendel Gabriel Dias Figueredo
+
+Esquemas do Banco de dados:
++-----------------+----------+---------+-----------+
+|  nome_completo  |  Cidade  |  Curso  |  Hobbies  |
++-----------------+----------+---------+-----------+
+
++------------+---------+--------------+
+|  id_curso  |  curso  |  qtd_alunos  |
++------------+---------+--------------+
+
+Estados do Banco de dados:
++---------------------------------+--------------+-------+-----------------------------------+
+|  nome_completo                  |    Cidade    | Curso |             Hobbies               |
++---------------------------------+--------------+-------+-----------------------------------+
+|  Wendel Gabriel Dias Figueredo  |  Araraquara  |  ADS  |  Jogar Bosquete, Ouvir Musica..   |
+|  Vitor Custodio da Silva        |  Araraquara  |  ADS  |  Fazer programas, Dormir e Comer  |
++---------------------------------+--------------+-------+-----------------------------------+
+
++------------+---------+--------------+
+|  id_curso  |  curso  |  qtd_alunos  |
++------------+---------+--------------+
+|         1  |   ADS   |          80  |
+|         2  |   TSI   |          45  |
+|         3  |   ENG   |          36  |
+|         4  |   ICC   |          27  |
++------------+---------+--------------+
