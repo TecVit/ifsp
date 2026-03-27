@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Hotal</title>
+</head>
+<body>
+  <h1>Reserva para {{ nome }}</h1>
+  <p>Dias reservados: {{ dias }}</p>
+  <p>Cálculo do total da reserva:</p>
+
+  <ul>
+    <li>Valor da Hospedagem: R${{ hospedagem }}</li>
+    <li>{{ taxa }}</li>
+  </ul>
+
+  <hr />
+
+  <p>Total a ser pago: R${{ total }}</p>
+</body>
+</html>
