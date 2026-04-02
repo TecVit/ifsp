@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+   <header>
+        <h1>Jogo Par ou Ímpar</h1>
+   </header>
+   
+   <div class="configs">
+        <p>Escolha a sua aposta:</p>
+        <label><input type="radio" name="aposta" value="par">Par</label>
+        <label><input type="radio" name="aposta" value="impar" checked>Impar</label>
+
+        <p>Escolha um numero de 1 a 5:</p>
+        <input type="number" id="number_player" min="1" max="5">
+
+        <button onclick="jogar()" id="btnjogar">JOGAR</button>
+   </div>
+
+   <div id="placarjogo">
+        <h3>Placar do jogo</h3>
+
+        <p>Player: <span id="pontosjogador">0</span></p>
+        <p>Computador: <span id="pontoscomputador">0</span></p>
+   </div>
+
+   <footer>
+        <button id="reset">Zerar o placar</button>
+   </footer>
+</body>
+<script src="../js/index.js"></script>
+</html>
