@@ -1,0 +1,18 @@
+Nome: Vitor Custódio da Silva
+Turma: 2° INFO T1
+
+(A) Resposta: É possível inserir a linha, pois a chave primária (CPF) a ser
+inserida não existe ainda, então não tem nenhum conflito. Mesmo assim, é importante
+notar que o CPF a ser inserido não é válido, já que os 9 primeiros números geram os
+outros números (verificadores), éticamente não deveria ser aceito para não possuir
+redundância de dados. :)
+
+(B) Resposta: Não vai ser possível inserir a linha, pois a chave primária já existe
+na tabela.
+
+(C) Resposta: Por padrão dessa tabela, os valores da coluna "Salario" são números 
+(int, float, integer), e não caracteres (strings, char, varchar), então tentar 
+inserir a informação "30K" vai resultar em um erro de tipagem de dado.
+
+(D) Resposta: O CPF ‘88866555576’ já existe na tabela, portanto, não é possível 
+alterar a chave primária por um valor que pertence a outra linha da mesma tabela.
