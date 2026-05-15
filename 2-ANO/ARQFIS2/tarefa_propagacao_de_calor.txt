@@ -1,0 +1,11 @@
+Condução: É quando o calor passa de um lugar para o outro dentro de um
+material, sem que ele se mova. Um exemplo é quando seguramos uma xícara 
+de café quente e sentimos o calor passar para as mãos.
+
+Convecção: Ocorre em líquidos e Gases, com o calor senod transportado 
+pelo movimento do próprio fluido. Um exemplo é o ar quente de um aquecedor
+que sobe e aquece o ambiente, enquanto o ar frio desce.
+
+Irradiação: É a transferência de calor por ondas, sem precisar de contato.
+(única que ocorre no vácuo). Um exemplo é sentir o calor de uma 
+fogueira mesma estando a certa distância dela.

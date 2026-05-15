@@ -1,0 +1,23 @@
+Nome: Vitor Custódio da Silva
+Turma: 2° INFO T1
+
+(A) Resposta: Não é possível inserir a linha, pois o Dnr = 2 não
+existe na tabela DEPARTAMENTO e, por ser uma chave estrangeira,
+vai retornar um erro de integridade referencial. Deveria ser
+criado esse departamento antes de adicionar um funcionário que
+faça referência a ele.
+
+(B) Resposta: Existe uma possível violação de integridade referencial,
+já que existem funcionários fazendo referência ao Dnumero = 4.
+Não seria possível excluir esse departamento sem antes remover
+ou alterar os funcionários vinculados a ele.
+
+(C) Resposta: Não haverá problema caso o departamento com
+Dnumero = 3 exista na tabela DEPARTAMENTO. Nessa caso (que não existe),
+ocorrerá um erro de integridade referencial por conta da chave
+estrangeira.
+
+(D) Resposta: Pode ocorrer violação de chave primária caso já
+exista um departamento com Dnumero = 2. Além disso, funcionários
+e projetos que fazem referência ao departamento 1 poderiam perder
+a referência correta, causando erro de integridade referencial.
