@@ -1,0 +1,7 @@
+Observe o código abaixo. Sem executar no navegador, responda: qual será o valor exibido no alert e por
+quê a propriedade length retorna esse número?
+
+Resposta: Temos 3 valores inicialmente no array, com o comando "push" nós adicionamos
+mais um elemento no array, ficando agora com 4 valores, ao utilizar o comando "shift"
+removemos o primeiro valor do array, ficando novamente com 3 valores no total.
+Será impresso no alert: "Alunos: 3".

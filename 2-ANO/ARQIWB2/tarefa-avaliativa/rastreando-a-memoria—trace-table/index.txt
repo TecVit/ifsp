@@ -1,0 +1,23 @@
+Linha 1
+Estado do Array: [ 10, 20, 30, 40, 50 ]
+Valor Retornado: Nenhum
+
+Linha 2
+Estado do Array: [ 10, 20, 30, 40 ]
+Valor Retornado: 50
+
+Linha 3
+Estado do Array: [ 5, 10, 20, 30, 40 ]
+Valor Retornado: 5
+
+Linha 4
+Estado do Array: [ 5, 10, 20, 30, 40, 60 ]
+Valor Retornado: 6
+
+Linha 5
+Estado do Array: [ 10, 20, 30, 40, 60 ]
+Valor Retornado: 5
+
+Linha 6
+Estado do Array: [ 10, 20, 30, 40, 60 ]
+Valor Retornado: "10 > 20 > 30 > 40 > 60"

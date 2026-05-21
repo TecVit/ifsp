@@ -1,0 +1,25 @@
+Para cada afirmação abaixo, marque (V) Verdadeiro ou (F) Falso e corrija as falsas reescrevendo a
+linha incorreta:
+
+Nº   Afirmação   (V / F)  Correção (se falsa)
+
+(A) O método push() adiciona elementos no início do array e
+retorna o novo tamanho. (F)
+
+Correção: Na verdade, ele adiciona o elemento no final do array e não no início
+
+(B) Após frutas.pop(), o último elemento é removido e retornado. (V)
+
+(C) O método concat() modifica o array original, unindo outro
+array a ele. (F)
+
+Correção: O método concat() apenas une arrays e retorna um novo array, 
+sem modificar o original.
+
+(D) array.join('-') retorna uma string com os elementos
+separados por hífen. (V)
+
+(E) length é um método que precisa de parênteses:
+array.length(). (F)
+
+Correção: length é uma propriedade do array, e não uma função.
