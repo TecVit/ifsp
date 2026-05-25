@@ -1,0 +1,24 @@
+Nome: Vitor Custódio da Silva
+Turma: 2° INFO T1
+
+Entidades e Atributos:
+
+ALUNO (matricula [PK], cpf [UNIQUE], nome, data_nascimento)
+
+TELEFONE (id_telefone [PK], numero, matricula_aluno [FK → ALUNO])
+
+CURSO (codigo [PK], nome, departamento, turno)
+
+COORDENADOR (prontuario [PK], cpf [UNIQUE], nome, codigo_curso [FK → CURSO, UNIQUE])
+
+LIVRO (isbn [PK], titulo, editora, ano_publicacao, corredor, prateleira, estante,
+  nome_colecao [FK → COLECAO, pode ser NULL])
+
+COLECAO (nome [PK], descricao)
+
+BIBLIOTECARIO (matricula [PK], nome, turno_trabalho)
+
+EMPRESTIMO (id_emprestimo [PK], matricula_aluno [FK → ALUNO], isbn_livro [FK → LIVRO],
+  matricula_bibliotecario [FK → BIBLIOTECARIO],
+  data_emprestimo, data_prevista_devolucao,
+  data_real_devolucao [pode ser NULL], estado_devolucao [pode ser NULL])
