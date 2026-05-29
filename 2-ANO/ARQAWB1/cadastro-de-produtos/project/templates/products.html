@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block conteudo %}
+
+{% if qtd_produtos > 0 %}
+  <h1>Produtos:</h1>
+  
+  <ol>
+    {% for produto in produtos %}
+
+      <li>
+        <p>Nome: {{ produto["name"] }}</p>
+        <p>Descrição: {{ produto["description"] }}</p>
+        <p>Preço: {{ produto["price"] }}</p>
+      </li>
+
+    {% endfor %}
+  </ol>
+{% else %}
+  <p>Nenhum produto encontrado!</p>
+{% endif %}
+
+<a href="/">Voltar ao início</a>
+
+{% endblock %}
