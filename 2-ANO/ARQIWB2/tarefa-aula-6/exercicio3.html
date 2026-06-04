@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - Cadastro de Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cadastro de Produto</h1>
+
+    <form>
+        <label>Nome do Produto:</label>
+        <input type="text" name="nome" required placeholder="Digite o nome do produto">
+
+        <label>Preço:</label>
+        <input type="number" name="preco" min="0" required placeholder="0.00">
+
+        <label>Quantidade em Estoque:</label>
+        <input type="number" name="quantidade" min="0" max="999" required placeholder="0 a 999">
+
+        <label>Descrição (opcional):</label>
+        <textarea name="descricao" rows="4" placeholder="Descrição do produto"></textarea>
+
+        <button type="submit">Cadastrar Produto</button>
+    </form>
+
+</body>
+</html>

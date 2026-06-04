@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Contato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulário de Contato</h1>
+
+    <form>
+        <label>Nome:</label>
+        <input type="text" name="nome" required placeholder="Digite seu nome">
+
+        <label>E-mail:</label>
+        <input type="email" name="email" required placeholder="Digite seu e-mail">
+
+        <label>Assunto:</label>
+        <input type="text" name="assunto" minlength="5" required placeholder="Mínimo 5 caracteres">
+
+        <label>Mensagem:</label>
+        <textarea name="mensagem" minlength="10" required rows="4" placeholder="Mínimo 10 caracteres"></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
