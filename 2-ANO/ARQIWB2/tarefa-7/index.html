@@ -1,0 +1,366 @@
+<html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IWB2 — Exercícios de Fixação 12 | IFSP Araraquara</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; min-height: 100vh; }
+.app { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+.header { background: #fff; border-radius: 16px; border: 1px solid #e0e6ef; padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.logo-wrap { height: 60px; flex-shrink: 0; }
+.logo-wrap img { height: 60px; width: auto; display: block; }
+.header-divider { width: 1px; height: 48px; background: #e0e6ef; flex-shrink: 0; }
+.header-info h1 { font-size: 16px; font-weight: 600; color: #1a5c2a; line-height: 1.3; }
+.header-info p { font-size: 13px; color: #5f7080; margin-top: 3px; }
+.header-badge { margin-left: auto; background: #e8f5e9; color: #1a5c2a; border-radius: 99px; padding: 6px 16px; font-size: 12px; font-weight: 600; white-space: nowrap; border: 1px solid #c8e6c9; }
+
+.progress-bar-wrap { background: #fff; border-radius: 12px; border: 1px solid #e0e6ef; padding: 0.9rem 1.4rem; margin-bottom: 1.1rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 1px 6px rgba(0,0,0,0.03); }
+.progress-label { font-size: 13px; color: #5f7080; white-space: nowrap; font-weight: 500; }
+.progress-track { flex: 1; height: 8px; background: #e8edf5; border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #1a5c2a, #43a047); border-radius: 99px; transition: width 0.5s cubic-bezier(.4,0,.2,1); }
+.progress-count { font-size: 13px; font-weight: 700; color: #1a5c2a; min-width: 36px; text-align: right; }
+
+.ex-tabs { display: flex; gap: 8px; margin-bottom: 1.1rem; flex-wrap: wrap; }
+.ex-tab { padding: 7px 18px; border-radius: 99px; border: 1px solid #d0d8e8; font-size: 13px; cursor: pointer; background: #fff; color: #5f7080; transition: all 0.18s; position: relative; font-weight: 500; }
+.ex-tab:hover { background: #f0f6ff; border-color: #a0b4d0; }
+.ex-tab.active { background: #1a5c2a; color: #fff; border-color: #1a5c2a; }
+.ex-tab.done::after { content: ''; width: 8px; height: 8px; background: #43a047; border-radius: 50%; position: absolute; top: 2px; right: 2px; border: 2px solid #fff; }
+.ex-tab.done.active::after { border-color: #1a5c2a; background: #a5d6a7; }
+
+.ex-card { background: #fff; border-radius: 16px; border: 1px solid #e0e6ef; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.ex-title { font-size: 16px; font-weight: 700; color: #1a5c2a; margin-bottom: 8px; }
+.ex-desc { font-size: 14px; color: #445060; line-height: 1.65; margin-bottom: 1.2rem; background: #f8fafb; border-left: 3px solid #43a047; border-radius: 0 8px 8px 0; padding: 10px 14px; }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+@media (max-width: 660px) { .split { grid-template-columns: 1fr; } }
+
+.panel-label { font-size: 11px; font-weight: 700; color: #8fa0b0; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.panel-label .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+.code-area { width: 100%; min-height: 250px; font-family: 'Courier New', Consolas, monospace; font-size: 13px; border: 1.5px solid #d0d8e8; border-radius: 10px; padding: 12px; background: #f7f9fc; color: #1e2d3d; resize: vertical; line-height: 1.65; outline: none; transition: border-color 0.2s; tab-size: 2; }
+.code-area:focus { border-color: #1a5c2a; background: #fff; }
+
+.preview-frame { width: 100%; min-height: 250px; border: 1.5px solid #d0d8e8; border-radius: 10px; background: #fff; display: block; }
+
+.btn-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.btn { padding: 8px 18px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 600; border: none; transition: all 0.18s; }
+.btn-run { background: #1a5c2a; color: #fff; }
+.btn-run:hover { background: #145222; transform: translateY(-1px); }
+.btn-run:active { transform: scale(0.97); }
+.btn-hint { background: #fff8e1; color: #b45309; border: 1px solid #fcd34d; }
+.btn-hint:hover { background: #fef3c7; }
+.btn-clear { background: #fce4ec; color: #b71c1c; border: 1px solid #f8bbd0; }
+.btn-clear:hover { background: #ffd7e5; }
+
+.feedback { margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; display: none; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.feedback.ok { background: #e8f5e9; color: #1b5e20; display: flex; align-items: center; gap: 8px; border: 1px solid #c8e6c9; }
+.feedback.err { background: #fce4ec; color: #880e4f; display: flex; align-items: center; gap: 8px; border: 1px solid #f8bbd0; }
+
+.tip-box { background: #e3f2fd; border-left: 3px solid #1976d2; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: #0d47a1; margin-top: 10px; display: none; line-height: 1.6; }
+.tip-box.show { display: block; animation: fadeIn 0.25s; }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid #eef1f7; }
+.btn-nav { padding: 9px 24px; border-radius: 9px; font-size: 13px; cursor: pointer; font-weight: 600; border: 1.5px solid #d0d8e8; background: #fff; color: #445060; transition: all 0.18s; }
+.btn-nav:hover:not(:disabled) { background: #f0f4ff; border-color: #a0b4d0; }
+.btn-nav:disabled { opacity: 0.35; cursor: not-allowed; }
+.btn-nav.primary { background: #1a5c2a; color: #fff; border-color: #1a5c2a; }
+.btn-nav.primary:hover { background: #145222; }
+
+.congrats-overlay { display: none; position: fixed; inset: 0; background: rgba(26,92,42,0.92); z-index: 999; align-items: center; justify-content: center; }
+.congrats-overlay.show { display: flex; }
+.congrats-box { background: #fff; border-radius: 20px; padding: 3rem 2.5rem; text-align: center; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+.trophy-icon { font-size: 64px; margin-bottom: 1rem; }
+.congrats-box h2 { font-size: 24px; font-weight: 700; color: #1a5c2a; margin-bottom: 10px; }
+.congrats-box p { font-size: 15px; color: #5f7080; line-height: 1.6; margin-bottom: 1.5rem; }
+.btn-close-congrats { background: #1a5c2a; color: #fff; border: none; padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; }
+
+/* Proteções adicionais anti-copy de enunciado */
+.ex-desc {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <div class="logo-wrap">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFhNWMyYSIgcng9IjEwIiAvPgogIDx0ZXh0IHg9IjUwIiB5PSI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SUZtPC90ZXh0Pgo8L3N2Zz4=" alt="Instituto Federal de São Paulo — Câmpus Araraquara" style="border-radius: 8px;">
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-info">
+      <h1>Instituto Federal de São Paulo — Câmpus Araraquara</h1>
+      <p>ARQIWEB2 &nbsp;•&nbsp; Exercícios de Fixação 12 &nbsp;•&nbsp; Prof. Junior</p>
+    </div>
+    <div class="header-badge">Funções e Eventos DOM</div>
+  </div>
+
+  <div class="progress-bar-wrap">
+    <span class="progress-label">Seu progresso</span>
+    <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+    <span class="progress-count" id="prog-text">0 / 5</span>
+  </div>
+
+  <div class="ex-tabs" id="tabs"><button class="ex-tab active">Ex. 1</button><button class="ex-tab">Ex. 2</button><button class="ex-tab">Ex. 3</button><button class="ex-tab">Ex. 4</button><button class="ex-tab">Ex. 5</button></div>
+  <div id="ex-wrapper">
+    <div class="ex-card">
+      <div class="ex-title">Exercício 1 — O Botão Reativo (Eventos de Mouse com Modificadores)</div>
+      <div class="ex-desc">Crie uma função chamada <code>atualizarContador</code> associada ao evento de clique (<em>click</em>) do botão de ID <code>btn-clique</code>. Requisito: Se o usuário clicar no botão segurando a tecla <strong>Shift</strong>, o contador exibido no <code>span</code> de ID <code>contador</code> deve incrementar de <strong>5 em 5</strong>. Caso contrário, deve incrementar de <strong>1 em 1</strong>. Use <code>addEventListener</code>.</div>
+      <div class="split">
+        <div>
+          <div class="panel-label"><span class="dot"></span> Seu código</div>
+          <textarea class="code-area" id="codearea" spellcheck="false" placeholder="Digite seu código aqui..."></textarea>
+          <div class="btn-row">
+            <button class="btn btn-run" onclick="runCode()">▶ Executar</button>
+            <button class="btn btn-hint" onclick="toggleHint()">💡 Dica</button>
+            <button class="btn btn-clear" onclick="clearCode()">✖ Limpar</button>
+          </div>
+          <div class="tip-box" id="tipbox">Dica: No callback do evento clique, verifique se 'event.shiftKey' é true para somar 5. Senão, some 1. Atualize display.textContent.</div>
+          <div class="feedback" id="feedback"></div>
+        </div>
+        <div>
+          <div class="panel-label"><span class="dot"></span> Preview ao vivo</div>
+          <iframe class="preview-frame" id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn-nav" onclick="goTo(-1)" disabled="">← Anterior</button>
+        <button class="btn-nav primary" onclick="goTo(1)">Próximo →</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="congrats-overlay" id="congrats">
+  <div class="congrats-box">
+    <div class="trophy-icon">🏆</div>
+    <h2>Parabéns!</h2>
+    <p>Você completou todos os 5 exercícios de Funções e Eventos em JavaScript com sucesso!<br>Excelente trabalho na disciplina ARQIWEB2.</p>
+    <button class="btn-close-congrats" onclick="document.getElementById('congrats').classList.remove('show')">Fechar</button>
+  </div>
+</div>
+
+<script>
+const exercises = [
+  {
+    id: 1,
+    title: "Exercício 1 — O Botão Reativo (Eventos de Mouse com Modificadores)",
+    desc: "Crie uma função chamada <code>atualizarContador</code> associada ao evento de clique (<em>click</em>) do botão de ID <code>btn-clique</code>. Requisito: Se o usuário clicar no botão segurando a tecla <strong>Shift</strong>, o contador exibido no <code>span</code> de ID <code>contador</code> deve incrementar de <strong>5 em 5</strong>. Caso contrário, deve incrementar de <strong>1 em 1</strong>. Use <code>addEventListener</code>.",
+    placeholder: `<!DOCTYPE html>\n<html>\n<body>\n  <button id="btn-clique">Clique Aqui</button>\n  <p>Contador: <span id="contador">0</span></p>\n\n  <script>\n    const botao = document.getElementById('btn-clique');\n    const display = document.getElementById('contador');\n    let valor = 0;\n\n    // Implemente a funcao e associe ao clique do botao\n    \n  <\/script>\n</body>\n</html>`,
+    hint: "Dica: No callback do evento clique, verifique se 'event.shiftKey' é true para somar 5. Senão, some 1. Atualize display.textContent.",
+    check: (c) => {
+      // Validando se evitou ctrl+c/v puro e implementou a lógica correta
+      const clean = c.replace(/\s+/g, '');
+      return /addEventListener/.test(c) && /shiftKey/.test(c) && (/5/.test(c) || /five/.test(c));
+    }
+  },
+  {
+    id: 2,
+    title: "Exercício 2 — Caixa de Texto Inteligente (Filtro Dinâmico de Caracteres)",
+    desc: "Crie uma <strong>Arrow Function</strong> associada ao evento <code>input</code> do campo de texto de ID <code>campo-texto</code>. Esta função deve ler o valor digitado e escrevê-lo na <code>div</code> de ID <code>resultado-texto</code> totalmente em <strong>letras maiúsculas</strong>, porém **removendo/ignorando** qualquer número de 0 a 9 que for digitado.",
+    placeholder: `<!DOCTYPE html>\n<html>\n<body>\n  <input type="text" id="campo-texto" placeholder="Digite algo...">\n  <div id="resultado-texto"></div>\n\n  <script>\n    const campo = document.getElementById('campo-texto');\n    const resultado = document.getElementById('resultado-texto');\n\n    // Implemente usando Arrow Function no addEventListener\n\n  <\/script>\n</body>\n</html>`,
+    hint: "Dica: campo.addEventListener('input', (event) => { const textoLimpo = event.target.value.replace(/[0-9]/g, ''); resultado.textContent = textoLimpo.toUpperCase(); });",
+    check: (c) => {
+      return /=>/.test(c) && /addEventListener/.test(c) && /toUpperCase/.test(c) && (/[0-9]/.test(c) || /d/.test(c));
+    }
+  },
+  {
+    id: 3,
+    title: "Exercício 3 — O Alternador de Estilo com Closure (Gerenciador de Estado)",
+    desc: "Crie uma função geradora (Closure) chamada <code>criarAlternador</code> que retorne uma função interna. A função interna deve alternar a cor de fundo (<code>backgroundColor</code>) da <code>div</code> de ID <code>box</code> entre <code>lightblue</code> e <code>lightcoral</code> a cada clique no botão de ID <code>btn-toggle</code>. Além disso, ela deve contar quantas alternâncias ocorreram e exibir no parágrafo de ID <code>status-toggle</code> (Ex: 'Toggled 3 vezes').",
+    placeholder: `<!DOCTYPE html>\n<html>\n<body>\n  <div id="box" style="width: 100px; height: 100px; border: 1px solid #333; background-color: lightblue;"></div>\n  <button id="btn-toggle">Alternar Cor</button>\n  <p id="status-toggle">Toggled 0 vezes</p>\n\n  <script>\n    const box = document.getElementById('box');\n    const btn = document.getElementById('btn-toggle');\n    const status = document.getElementById('status-toggle');\n\n    // Implemente a closure criarAlternador e ligue ao botao\n\n  <\/script>\n</body>\n</html>`,
+    hint: "Dica:\nfunction criarAlternador() {\n  let count = 0;\n  return function() {\n    count++;\n    box.style.backgroundColor = box.style.backgroundColor === 'lightblue' ? 'lightcoral' : 'lightblue';\n    status.textContent = `Toggled ${count} vezes`;\n  }\n}",
+    check: (c) => {
+      return /function\s+criarAlternador/.test(c) && /return\s+function/.test(c) && /backgroundColor/.test(c);
+    }
+  },
+  {
+    id: 4,
+    title: "Exercício 4 — Validação Visual e Semântica de Input (Focus e Blur)",
+    desc: "Adicione dois escutadores de evento ao campo de e-mail de ID <code>email-input</code>. Quando o campo receber foco (<code>focus</code>), adicione uma borda azul grossa (<code>3px solid blue</code>) a ele. Quando o campo perder o foco (<code>blur</code>), verifique se o valor contém o caractere '@' e '.'. Se sim, mude a borda para verde (<code>3px solid green</code>). Se não, mude para vermelha (<code>3px solid red</code>) e limpe a borda azul.",
+    placeholder: `<!DOCTYPE html>\n<html>\n<body>\n  <input type="text" id="email-input" placeholder="seuemail@provedor.com">\n\n  <script>\n    const inputEmail = document.getElementById('email-input');\n\n    // Implemente os eventos de 'focus' e 'blur' para validacao visual\n\n  <\/script>\n</body>\n</html>`,
+    hint: "Dica: inputEmail.addEventListener('focus', ...) e inputEmail.addEventListener('blur', ...). Use includes('@') && includes('.') para validar.",
+    check: (c) => {
+      return /addEventListener\s*\(\s*['\"]focus['\"]/.test(c) && /addEventListener\s*\(\s*['\"]blur['\"]/.test(c) && /style\.border/.test(c);
+    }
+  },
+  {
+    id: 5,
+    title: "Exercício 5 — Delegação de Eventos (Event Delegation Eficiente)",
+    desc: "Você tem uma lista não ordenada de ID <code>lista-acoes</code> contendo botões dinâmicos com atributos <code>data-action</code>. Adicione **um único** escutador de eventos no elemento pai (<code>ul</code> de ID <code>lista-acoes</code>). Quando qualquer botão for clicado, o código deve ler o valor do atributo <code>data-action</code> daquele botão clicado (usando <code>event.target</code>) e exibi-lo no parágrafo de ID <code>acao-selecionada</code>.",
+    placeholder: `<!DOCTYPE html>\n<html>\n<body>\n  <ul id="lista-acoes">\n    <li><button data-action="Salvar">Salvar Arquivo</button></li>\n    <li><button data-action="Excluir">Excluir Registro</button></li>\n    <li><button data-action="Compartilhar">Enviar Link</button></li>\n  </ul>\n  <p>Ação acionada: <span id="acao-selecionada">Nenhuma</span></p>\n\n  <script>\n    const lista = document.getElementById('lista-acoes');\n    const log = document.getElementById('acao-selecionada');\n\n    // Adicione o listener de clique no elemento pai 'lista'\n\n  <\/script>\n</body>\n</html>`,
+    hint: "Dica: lista.addEventListener('click', (e) => { if (e.target.tagName === 'BUTTON') { log.textContent = e.target.getAttribute('data-action'); } });",
+    check: (c) => {
+      return /lista\.addEventListener/.test(c) && /target/.test(c) && /(getAttribute|dataset)/.test(c);
+    }
+  }
+];
+
+let current = 0;
+const done = new Set();
+const tipVisible = {};
+const savedCodes = {};
+
+function updateProgress() {
+  const pct = (done.size / exercises.length) * 100;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = done.size + ' / ' + exercises.length;
+  if (done.size === exercises.length) {
+    setTimeout(() => document.getElementById('congrats').classList.add('show'), 600);
+  }
+}
+
+function renderTabs() {
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = '';
+  exercises.forEach((ex, i) => {
+    const t = document.createElement('button');
+    t.className = 'ex-tab' + (i === current ? ' active' : '') + (done.has(i) ? ' done' : '');
+    t.textContent = 'Ex. ' + ex.id;
+    t.onclick = () => { current = i; render(); };
+    tabs.appendChild(t);
+  });
+}
+
+function render() {
+  renderTabs();
+  const ex = exercises[current];
+  const code = savedCodes[current] !== undefined ? savedCodes[current] : ex.placeholder;
+  const tip = tipVisible[current] || false;
+
+  document.getElementById('ex-wrapper').innerHTML = `
+    <div class="ex-card">
+      <div class="ex-title">${ex.title}</div>
+      <div class="ex-desc">${ex.desc}</div>
+      <div class="split">
+        <div>
+          <div class="panel-label"><span class="dot"></span> Seu código</div>
+          <textarea class="code-area" id="codearea" spellcheck="false" placeholder="Digite seu código aqui..."></textarea>
+          <div class="btn-row">
+            <button class="btn btn-run" onclick="runCode()">&#9654; Executar</button>
+            <button class="btn btn-hint" onclick="toggleHint()">&#128161; Dica</button>
+            <button class="btn btn-clear" onclick="clearCode()">&#10006; Limpar</button>
+          </div>
+          <div class="tip-box${tip ? ' show' : ''}" id="tipbox">${ex.hint}</div>
+          <div class="feedback" id="feedback"></div>
+        </div>
+        <div>
+          <div class="panel-label"><span class="dot"></span> Preview ao vivo</div>
+          <iframe class="preview-frame" id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn-nav" onclick="goTo(${current - 1})" ${current === 0 ? 'disabled' : ''}>&larr; Anterior</button>
+        <button class="btn-nav primary" onclick="goTo(${current + 1})" ${current === exercises.length - 1 ? 'disabled' : ''}>Próximo &rarr;</button>
+      </div>
+    </div>
+  `;
+
+  const area = document.getElementById('codearea');
+  area.value = code;
+
+  // Atualizar o código salvo conforme o usuário digita
+  area.addEventListener('input', function() {
+    savedCodes[current] = this.value;
+  });
+
+  // PROTEÇÃO EXTRA CONTRA COLA / INTEGRAÇÃO COM IA
+  // 1. Detectar colar e alterar levemente o comportamento para irritar/avisar
+  area.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+    // Insere o texto com comentários denunciando ou caracteres zoados
+    const start = this.selectionStart;
+    const end = this.selectionEnd;
+    const text = this.value;
+    
+    // Insere o texto mas com um comentário sarcástico no topo do bloco colado
+    const trollText = `\n/* [ALERTA DE COLA] Colei este trecho do ChatGPT/Copilot para poupar neurônios */\n${pastedText}`;
+    this.value = text.substring(0, start) + trollText + text.substring(end);
+    savedCodes[current] = this.value;
+    
+    alert('⚠️ Cuidado! Colar código desabilita a validação automática temporariamente. Digite manualmente ou resolva o trecho marcado!');
+  });
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function runCode() {
+  const code = document.getElementById('codearea').value;
+  savedCodes[current] = code;
+  const frame = document.getElementById('preview');
+  const fb = document.getElementById('feedback');
+  const ex = exercises[current];
+  frame.srcdoc = code;
+
+  // Verifica se o código colado tem a tag de alerta contra colar
+  if (code.includes('[ALERTA DE COLA]')) {
+    fb.className = 'feedback err';
+    fb.innerHTML = '&#10007; Validação falhou! Remova o comentário de cola e reescreva o trecho para validar.';
+    return;
+  }
+
+  if (ex.check(code)) {
+    done.add(current);
+    fb.className = 'feedback ok';
+    fb.innerHTML = '&#10003; Muito bem! Implementação correta. Veja o resultado no preview!';
+  } else {
+    fb.className = 'feedback err';
+    fb.innerHTML = '&#10007; Ainda não está correto. Revise o código ou use a Dica!';
+  }
+  updateProgress();
+  renderTabs();
+}
+
+function toggleHint() {
+  tipVisible[current] = !tipVisible[current];
+  const box = document.getElementById('tipbox');
+  if (box) box.classList.toggle('show', tipVisible[current]);
+}
+
+function clearCode() {
+  savedCodes[current] = exercises[current].placeholder;
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('preview').srcdoc = '';
+  render();
+}
+
+function goTo(i) {
+  if (i < 0 || i >= exercises.length) return;
+  current = i;
+  render();
+}
+
+render();
+updateProgress();
+
+// Desabilitar clique direito na página para evitar "Inspecionar -> Colar"
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Bloquear atalhos comuns de cópia/colagem na página inteira
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C')) {
+    e.preventDefault();
+    alert('Atalho Ctrl+C desativado neste exercício!');
+  }
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+    // Deixa colar na textarea para disparar o evento dela com o troll text
+    if (document.activeElement.id !== 'codearea') {
+      e.preventDefault();
+      alert('Atalho Ctrl+V bloqueado!');
+    }
+  }
+});
+</script>
+
+
+</body></html>
