@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventoIF - Gerenciamento de Eventos</title>
+  <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+  <main class="container">
+    <section class="content">
+      <header>
+        <h1>EventoIF - Gerenciamento de Eventos</h1>
+        <p>Gerenciamento de Eventos do Campus - IFSP Araraquara</p>
+      </header>
+
+      <article class="form">
+        <h1>Adicionar Evento:</h1>
+
+        <label for="nameEvent">Nome:</label>
+        <input placeholder="Nome do evento" type="text" name="nameEvent" id="nameEvent">
+
+        <label for="dateEvent">Data:</label>
+        <input type="date" name="dateEvent" id="dateEvent">
+
+        <label for="startTimeEvent">Hora Início:</label>
+        <input placeholder="0 a 23" type="number" name="startTimeEvent" id="startTimeEvent">
+        
+        <label for="endTimeEvent">Hora Fim:</label>
+        <input placeholder="0 a 23" type="number" name="endTimeEvent" id="endTimeEvent">
+
+        <label for="locationEvent">Lugar:</label>
+        <input placeholder="Local do evento" type="text" name="locationEvent" id="locationEvent">
+
+        <label for="category">Categoria:</label>
+        <select name="category" id="category"></select>
+
+        <button id="btn-add-event">Adicionar Evento</button>
+
+        <p id="alertFormEvent"></p>
+      </article>
+
+      <article class="events">
+        <h1>Eventos</h1>
+
+        <div class="filters">
+          <div id="categories"></div>
+          <input placeholder="Buscar por nome:" type="text" name="search" id="search">
+          <button id="btn-ordenar-por-data">Ordenar por data</button>
+        </div>
+
+        <p id="qtd-events"></p>
+
+        <div id="list-events"></div>
+
+      </article>
+
+      <article class="statistics">
+        <h1>Estatisticas</h1>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <span class="stat-label">Total de Horas Programadas</span>
+            <span class="stat-value" id="stat-total-horas">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Evento Mais Proximo</span>
+            <span class="stat-value" id="stat-evento-proximo">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Distribuicao por Categoria</span>
+            <span class="stat-value" id="stat-categorias">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Dia da Semana Mais Agitado</span>
+            <span class="stat-value" id="stat-dia-semana">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Mes com Mais Eventos</span>
+            <span class="stat-value" id="stat-mes">—</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+<script src="./js/dados.js"></script>
+<script src="./js/app.js"></script>
+</html>

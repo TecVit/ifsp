@@ -1,0 +1,83 @@
+const eventos = [
+  {
+    id: 1,
+    nome: 'Semana de Tecnologia IFSP',
+    data: new Date(2025, 8, 15),
+    horaInicio: 8,
+    horaFim: 18,
+    local: 'Auditório Principal',
+    categoria: 'academico',
+  },
+  {
+    id: 2,
+    nome: 'Mostra Cultural de Talentos',
+    data: new Date(2025, 8, 18),
+    horaInicio: 19,
+    horaFim: 22,
+    local: 'Pátio Central',
+    categoria: 'cultural',
+  },
+  {
+    id: 3,
+    nome: 'Torneio Interclasses de Futsal',
+    data: new Date(2025, 8, 20),
+    horaInicio: 14,
+    horaFim: 17,
+    local: 'Quadra Poliesportiva',
+    categoria: 'esporte',
+  },
+  {
+    id: 4,
+    nome: 'Visita Técnica à Indústria Local',
+    data: new Date(2025, 8, 22),
+    horaInicio: 9,
+    horaFim: 12,
+    local: 'Empresa parceira (transporte no estacionamento)',
+    categoria: 'visita',
+  },
+  {
+    id: 5,
+    nome: 'Palestra: Carreiras em Ciência de Dados',
+    data: new Date(2026, 8, 25),
+    horaInicio: 10,
+    horaFim: 12,
+    local: 'Sala 204',
+    categoria: 'academico',
+  },
+  {
+    id: 6,
+    nome: 'Sarau Literário e Musical',
+    data: new Date(2026, 8, 27),
+    horaInicio: 18,
+    horaFim: 21,
+    local: 'Biblioteca',
+    categoria: 'cultural',
+  },
+  {
+    id: 7,
+    nome: 'Corrida do Campus 5km',
+    data: new Date(2026, 9, 4),
+    horaInicio: 7,
+    horaFim: 10,
+    local: 'Pista de Atletismo',
+    categoria: 'esporte',
+  },
+  {
+    id: 8,
+    nome: 'Visita ao Museu de Ciências',
+    data: new Date(2026, 9, 9),
+    horaInicio: 13,
+    horaFim: 17,
+    local: 'Museu (saída do portão principal)',
+    categoria: 'visita',
+  },
+];
+
+let totalEvents = 8;
+
+const categorias = [
+  'academico',
+  'cultural',
+  'esporte',
+  'visita',
+];
