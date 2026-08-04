@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Buscar — FitZone {% endblock %}
+
+{% block conteudo %}
+    <form action="{{ url_for('resultado') }}" method="POST">
+        <select name="modalidade" id="modalidade">
+            <option value="Musculação">Musculação</option>
+            <option value="Natação">Natação</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Crossfit">Crossfit</option>
+            <option value="Pilates">Pilates</option>
+        </select>
+
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if planos_filtrados %}
+        <section>
+            {% for plano in planos_filtrados %}
+                <div>
+                    <p><strong>Nome:</strong> {{ plano['nome'] }}</p>
+                    <p><strong>Modalidade:</strong> {{ plano['modalidade'] }}</p>
+                    <p><strong>Duração:</strong> {{ plano['duracao'] }} meses</p>
+                    <p><strong>Nível:</strong> {{ plano['nivel'] }}</p>
+                </div>
+                <br>
+            {% endfor %}
+        </section>
+    {% else %}
+        <section>
+            <p>{{ mensagem }}</p>
+        </section>
+    {% endif %}
+{% endblock %}

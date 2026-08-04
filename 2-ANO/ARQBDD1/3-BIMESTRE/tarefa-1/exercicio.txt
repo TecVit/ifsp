@@ -1,0 +1,7 @@
+Questão: Elabore script SQL para criar um banco de dados relacional usando SQLite no computador do laboratório, segundo o esquema:
+Time (sigla, nome)
+Partida (codigo, data_partida, time_A, gols_A, time_B, gols_B)
+FK time_A referencia Time (sigla)
+FK time_B referencia Time (sigla)
+Sigla do time é formada por 3 caracteres; nome do time é formado por 30 caracteres no máximo; código da partida é um número inteiro; 
+data_partida é uma data com dia, mês e ano; gols_A e gols_B são números inteiros que representam a quantidade de gols de cada time.
