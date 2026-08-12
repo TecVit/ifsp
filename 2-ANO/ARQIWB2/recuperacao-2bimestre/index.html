@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dos Dados</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Jogo Soma dos Dados</h1>
+    </header>
+
+    <div class="dados">
+        <p>Dado 1: <span id="dado1">-</span></p>
+        <p>Dado 2: <span id="dado2">-</span></p>
+        <p>Soma: <span id="soma">-</span></p>
+    </div>
+
+    <div class="jogo">
+        <button id="btn-iniciar">Iniciar Rodada</button>
+
+        <p>Seu palpite:</p>
+        <input type="number" id="palpite" min="2" max="12">
+        <button id="btn-jogar" disabled>Jogar</button>
+
+        <p id="mensagem"></p>
+        <p>Tentativas restantes: <span id="tentativas">-</span></p>
+    </div>
+
+    <div id="placar">
+        <h3>Placar</h3>
+        <p>Rodadas ganhas: <span id="vitorias">0</span></p>
+        <p>Rodadas perdidas: <span id="derrotas">0</span></p>
+    </div>
+
+    <footer>
+        <button id="btn-reiniciar">Reiniciar Jogo</button>
+    </footer>
+</body>
+<script src="./js/index.js"></script>
+</html>

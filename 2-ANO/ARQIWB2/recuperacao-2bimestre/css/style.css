@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+h1 {
+    color: #333333;
+}
+
+.dados, .jogo, #placar {
+    border: 1px solid #000000;
+    padding: 15px;
+    margin: 15px auto;
+    width: 250px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+input[type="number"] {
+    padding: 5px;
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#mensagem {
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 15px;
+}
+
+footer button {
+    background-color: #f44336;
+}
