@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Cadastrar Vaga — JobHub {% endblock %}
+
+{% block conteudo %}
+    <h1>Cadastre uma vaga em nosso portal!</h1>
+
+    <form method="POST" action="{{ url_for('cadastrar')}}">
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" id="titulo">
+
+        <label for="empresa">Empresa:</label>
+        <input type="text" name="empresa" id="empresa">
+
+        <label for="area">Area:</label>
+        <input type="text" name="area" id="area">
+
+        <label for="regime">Regime:</label>
+        <input type="text" name="regime" id="regime">
+
+        <label for="salario">Salario:</label>
+        <input type="text" name="salario" id="salario">
+
+        <input type="submit" value="Cadastrar Vaga">
+    </form>
+
+    {% if mensagem %}
+        <p>Vaga cadastrada com sucesso!</p>
+    {% endif %}
+    
+{% endblock %}

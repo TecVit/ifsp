@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Vagas Disponíveis — JobHub {% endblock %}
+
+{% block conteudo %}
+    <h1>Confira os detalhes de cada vaga disponível!</h1>
+
+    {% if VAGAS %}
+        <ul>
+            {% for vaga in VAGAS %}
+                <li>
+                    <p><strong>Título:</strong>{{ vaga['titulo']}}</p>
+                    <p><strong>Área:</strong>{{ vaga['area']}}</p>
+                    <p><strong>Empresa:</strong>{{ vaga['empresa']}}</p>
+                    <p><strong>Regime:</strong>{{ vaga['regime']}}</p>
+                    <p><strong>Salário:</strong>{{ vaga['salario']}}</p>
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma vaga cadastrada ainda.</p>
+    {% endif %}
+{% endblock %}

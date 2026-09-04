@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} CineLog {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>CineLog — Seu Diário de Filmes</h1>
+        <nav>
+            <a href="{{ url_for('home')}}">Início</a>
+            <a href="{{ url_for('filmes')}}">Filmes</a>
+            <a href="{{ url_for('busca')}}">Busca</a>
+            <a href="{{ url_for('sobre')}}">Sobre Nós</a>
+        </nav>
+    </header>
+
+    <body>
+        {% block conteudo %} {% endblock %}
+    </body>
+
+    <footer>
+        <p>© 2025 CineLog — Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Buscar Pacientes — VidaSaúde {% endblock %}
+
+{% block conteudo %}
+    <h1>Busque pacientes pelo convênio!</h1>
+
+    <form action="{{ url_for('resultado') }}" method="POST">
+        <select name="convenio" id="convenio">
+            <option value="Unimed">Unimed</option>
+            <option value="Bradesco Saúde">Bradesco Saúde</option>
+            <option value="SulAmérica">SulAmérica</option>
+            <option value="Amil">Amil</option>
+            <option value="Particular">Particular</option>
+        </select>
+
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if resultados %}
+        <section>
+            {% for paciente in resultados %}
+                <div>
+                    <p><strong>Nome:</strong> {{ paciente['nome'] }}</p>
+                    <p><strong>Idade:</strong> {{ paciente['idade'] }}</p>
+                    <p><strong>Convênio:</strong> {{ paciente['convenio'] }}</p>
+                    <p><strong>Especialidade:</strong> {{ paciente['especialidade'] }}</p>
+                </div>
+                <br>
+            {% endfor %}
+        </section>
+    {% else %}
+        <section>
+            <p>Nenhum paciente encontrado para este convênio.</p>
+        </section>
+    {% endif %}
+{% endblock %}

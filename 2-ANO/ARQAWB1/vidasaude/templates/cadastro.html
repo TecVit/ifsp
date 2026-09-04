@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Cadastrar Paciente — VidaSaúde {% endblock %}
+
+{% block conteudo %}
+    <h1>Cadastre um paciente em nossa clínica!</h1>
+
+    <form method="POST" action="{{ url_for('cadastrar') }}">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+
+        <label for="idade">Idade:</label>
+        <input type="text" name="idade" id="idade">
+
+        <label for="convenio">Convênio:</label>
+        <input type="text" name="convenio" id="convenio">
+
+        <label for="especialidade">Especialidade:</label>
+        <input type="text" name="especialidade" id="especialidade">
+
+        <input type="submit" value="Cadastrar Paciente">
+    </form>
+
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Buscar — CineLog {% endblock %}
+
+{% block conteudo %}
+    <form action="{{ url_for('resultado') }}"" method="POST">
+        <select name="genero" id="genero">
+            <option value="Ação">Ação</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Drama">Drama</option>
+            <option value="Terror">Terror</option>
+            <option value="Ficção Científica">Ficção Científica</option>
+        </select>
+
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if filmes_filtrados %}
+        <section>
+            {% for filme in filmes_filtrados %}
+                <div>
+                    <p><strong>Título:</strong> {{ filme['titulo'] }}</p>
+                    <p><strong>Diretor:</strong> {{ filme['diretor'] }}</p>
+                    <p><strong>Gênero:</strong> {{ filme['genero'] }}</p>
+                    <p><strong>Ano de Lançamento:</strong> {{ filme['ano'] }}</p>
+                </div>
+                <br>
+            {% endfor %}
+        </section>
+    {% else %}
+        <section>
+            <p>Nenhum filme encontrado no momento!</p>
+        </section>
+    {% endif %}
+{% endblock %}

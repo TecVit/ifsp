@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Início — JobHub {% endblock %}
+
+{% block conteudo %}
+    <h1>Bem-Vindo ao nosso portal de Vagas</h1>
+    <p>Atualmente nós temos um total de {{ qtd_vagas }} vagas disponíveis!</p>
+
+    <h2>Siga algumas das nossas áreas disponíveis:</h2>
+    <ul>
+        {% for vaga in VAGAS %}
+            <li>{{ vaga['area']}}</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

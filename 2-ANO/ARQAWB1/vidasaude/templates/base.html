@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}VidaSaúde{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>VidaSaúde — Cuidando de Você</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Início</a>
+            <a href="{{ url_for('pacientes') }}">Pacientes</a>
+            <a href="{{ url_for('cadastro') }}">Cadastrar</a>
+            <a href="{{ url_for('busca') }}">Buscar</a>
+            <a href="{{ url_for('sobre') }}">Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>2025 VidaSaúde — Todos os direitos reservados | contato@vidasaude.com.br</p>
+    </footer>
+</body>
+</html>
