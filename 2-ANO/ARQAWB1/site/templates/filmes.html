@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Filmes — CineLog {% endblock %}
+
+{% block conteudo %}
+    <h1>Confira a lista de filmes do catálogo</h1>
+
+    <section>
+        {% for filme in lista_filmes %}
+            <div>
+                <p><strong>Título:</strong> {{ filme['titulo'] }}</p>
+                <p><strong>Diretor:</strong> {{ filme['diretor'] }}</p>
+                <p><strong>Gênero:</strong> {{ filme['genero'] }}</p>
+                <p><strong>Ano de Lançamento:</strong> {{ filme['ano'] }}</p>
+            </div>
+            <br>
+        {% endfor %}
+    </section>
+{% endblock %}

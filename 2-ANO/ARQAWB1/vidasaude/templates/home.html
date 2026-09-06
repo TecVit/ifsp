@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Início — VidaSaúde {% endblock %}
+
+{% block conteudo %}
+    <h1>Bem-Vindo ao Portal VidaSaúde</h1>
+    <p>Atualmente contamos com um total de {{ total_pacientes }} pacientes cadastrados!</p>
+
+    <h2>Convênios atendidos por nossa clínica:</h2>
+    <ul>
+        {% for convenio in ["Unimed", "Bradesco Saúde", "SulAmérica", "Amil", "Particular"] %}
+            <li>{{ convenio }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
