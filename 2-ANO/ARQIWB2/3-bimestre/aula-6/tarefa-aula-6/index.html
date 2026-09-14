@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Preferências com Consentimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tema-claro">
+
+    <header>
+        <h1>Painel de Preferências com Consentimento</h1>
+        <button class="botao" id="botao-tema">Alternar tema</button>
+    </header>
+
+    <hr>
+
+    <p id="boas-vindas"></p>
+
+    <h2>Sobre este exercício</h2>
+    <p>Esta página demonstra como um site pode oferecer um tema claro/escuro e, ao mesmo tempo, respeitar a LGPD: nada é gravado em cookie sem o consentimento explícito do usuário.</p>
+    <p>Use o botão "Alternar tema" acima para trocar as cores. Se você ainda não deu consentimento (ou rejeitou), a escolha de tema não será lembrada na próxima visita.</p>
+
+    <h2>Cookies ao vivo</h2>
+    <p>O conteúdo abaixo mostra, em tempo real, o que está guardado em <code>document.cookie</code>:</p>
+    <pre id="cookies-live"></pre>
+
+    <footer>
+        <button class="botao" id="esquecer">Esquecer meus dados</button>
+    </footer>
+
+    <div class="box" id="banner-cookies">
+        <div>
+            <p class="mensagem">
+                Nosso site usa cookies para lembrar suas preferências (como o tema claro/escuro)
+                e sua última visita. Você decide o que aceita, conforme a LGPD.
+            </p>
+            <a href="">Política de Privacidade</a>
+
+            <div id="painel-personalizar" hidden>
+                <label>
+                    <input type="checkbox" checked disabled>
+                    Necessários (sempre ativos)
+                </label>
+                <label>
+                    <input type="checkbox" id="check-preferencias">
+                    Preferências (tema e última visita)
+                </label>
+                <button class="botao" id="salvar-personalizado">Salvar preferências</button>
+            </div>
+        </div>
+        <div>
+            <button class="botao" id="aceitar">Aceitar</button>
+            <button class="botao" id="rejeitar">Rejeitar</button>
+            <button class="botao" id="personalizar">Personalizar</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

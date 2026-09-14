@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding-bottom: 90px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tema-claro {
+    background-color: white;
+    color: black;
+}
+
+.tema-escuro {
+    background-color: black;
+    color: white;
+}
+
+#cookies-live {
+    background-color: lightgray;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+#boas-vindas {
+    font-style: italic;
+}
+
+.box {
+    background-color: blue;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    z-index: 1000;
+    border-radius: 0px 8px 0px 0px;
+    border: 3px dashed gray;
+    border-bottom: none;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+a {
+    color: white;
+}
+
+.mensagem {
+    font-size: 16px;
+}
+
+.botao {
+    cursor: pointer;
+    padding: 3px 8px;
+}
+
+#painel-personalizar[hidden] {
+    display: none;
+}
+
+#painel-personalizar {
+    margin-top: 10px;
+}
