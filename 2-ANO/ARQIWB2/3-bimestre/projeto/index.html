@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Jogos de Console</title>
+</head>
+<body>
+    <main class="container">
+        <section class="content">
+            <div class="form">
+                <h1>Cadastro de Jogo</h1>
+                <p>Informe os dados:</p>
+
+                <label for="nome">Nome do Jogos:</label>
+                <input type="text" name="nome" id="nome">
+
+                <label for="preco">Preço Unitário:</label>
+                <input type="number" name="preco" id="preco">
+
+                <label for="estoque">Quantidade em estoque:</label>
+                <input type="number" min="1" max="99" name="estoque" id="estoque">
+
+                <button onclick="cadastrarJogo()">Cadastrar</button>
+            </div>
+
+            <article class="tables">
+                <div class="table">
+                    <h1>Jogos Disponíveis</h1>
+    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome do Jogo</th>
+                                <th>Preço Unitário</th>
+                                <th>Quantidade em Estoque</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaDeJogos">
+                            <tr>
+                                <td>Call of Duty®: Black Ops 6 - Edição Cofre</td>
+                                <td>479,00</td>
+                                <td>100</td>
+                                <td><button class="buy">Comprar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </main>
+<script src="./js/index.js"></script>
+</body>
+</html>
