@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 0px;
+    padding: 25px 0px;
 }
 
 .container .content {
@@ -36,7 +36,7 @@ body {
     top: 0px;
     width: 100%;
     max-width: 500px;
-    height: auto;
+    height: max-content;
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -90,6 +90,7 @@ body {
     height: auto;
     display: flex;
     flex-direction: column;
+    gap: 40px;
 }
 
 .container .content .tables .table {
@@ -161,6 +162,62 @@ body {
     color: #ffffff;
 }
 
+.container .content .tables .table table .remove {
+    width: auto;
+    min-width: 90px;
+    height: 36px;
+    padding: 0px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    background: #f73816;
+    color: #ffffff;
+}
+
 .container .content .tables .table table .buy:hover {
     background: #0879e3;
+}
+
+.container .mensagens {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px 35px 0px;
+}
+
+#alertarSucesso {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #5fde63d7;
+    background: #b1fbb3;
+    color: rgb(39, 99, 19);
+    display: none;
+    opacity: 0;
+}
+
+#alertarErro {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #de5f5fd7;
+    background: #fbb1b1;
+    color: rgba(99, 19, 19, 0.977);
+    display: none;
+    opacity: 0;
+}
+
+@media (max-width: 1150px) {
+    .container .content {
+        flex-direction: column;
+    }
+
+    .container .content * {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }

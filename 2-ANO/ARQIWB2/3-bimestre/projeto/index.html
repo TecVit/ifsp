@@ -8,19 +8,23 @@
 </head>
 <body>
     <main class="container">
+        <header class="mensagens">
+            <p id="alertarSucesso"></p>
+            <p id="alertarErro"></p>
+        </header>
         <section class="content">
             <div class="form">
                 <h1>Cadastro de Jogo</h1>
                 <p>Informe os dados:</p>
 
                 <label for="nome">Nome do Jogos:</label>
-                <input type="text" name="nome" id="nome">
+                <input placeholder="ex: Battlefield 4" type="text" name="nome" id="nome">
 
                 <label for="preco">Preço Unitário:</label>
-                <input type="number" name="preco" id="preco">
+                <input placeholder="49,90" type="number" name="preco" id="preco">
 
                 <label for="estoque">Quantidade em estoque:</label>
-                <input type="number" min="1" max="99" name="estoque" id="estoque">
+                <input placeholder="20" type="number" min="1" max="99" name="estoque" id="estoque">
 
                 <button onclick="cadastrarJogo()">Cadastrar</button>
             </div>
@@ -39,18 +43,43 @@
                             </tr>
                         </thead>
                         <tbody id="listaDeJogos">
-                            <tr>
+                            <!-- <tr>
                                 <td>Call of Duty®: Black Ops 6 - Edição Cofre</td>
                                 <td>479,00</td>
                                 <td>100</td>
                                 <td><button class="buy">Comprar</button></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table">
+                    <h1>Carrinho de Compras</h1>
+    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome do Jogo</th>
+                                <th>Quantidade</th>
+                                <th>Preço Unitário</th>
+                                <th>Ações</th>
                             </tr>
+                        </thead>
+                        <tbody id="listaDoCarrinho">
+                            <!-- <tr>
+                                <td>Call of Duty®: Black Ops 6 - Edição Cofre</td>
+                                <td>479,00</td>
+                                <td>100</td>
+                                <td><button class="buy">Comprar</button></td>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
             </article>
         </section>
     </main>
-<script src="./js/index.js"></script>
+    
+    <script src="./js/index.js"></script>
+    <script src="./js/alert.js"></script>
 </body>
 </html>
