@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 400px;
+    height: 80px;
+    padding: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.botao {
+    cursor: pointer;
+    padding: 3px 8px;
+    margin-top: 5px;
+}
+
+#lista-mensagens li {
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    padding: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#status-palavra {
+    font-style: italic;
+}
