@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 4px;
+}
+
+.botao {
+    cursor: pointer;
+    padding: 3px 8px;
+}
+
+#lista-pessoas li {
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    padding: 8px;
+    margin-bottom: 8px;
+}
