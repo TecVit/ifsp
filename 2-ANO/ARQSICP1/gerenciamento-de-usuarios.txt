@@ -1,0 +1,45 @@
+Nomes: Vitor Custodio da Silva e Wendel Gabriel Dias Figueredo
+
+(1) sudo groupadd desenvolvimento
+
+Sem Resultado
+
+(2) cat /etc/group
+
+Resultado:
+...
+desenvolvimento:x:1003:
+
+GID: 1003
+
+(3) sudo adduser aluno1
+
+Resultado:
+...
+Nova senha: aluno
+Redigite a nova senha: aluno
+...
+Nome Completo []: Aluno dos santos
+Número da Sala []: 2
+...
+info: Adicionando usuário 'aluno1' ao grupo 'users'
+
+(4) sudo usermod -l dev_user1 aluno1
+
+Sem Resultado
+
+(5) sudo usermod –a –G desenvolvimento dev_user1
+
+Sem Resultado
+
+(6) sudo usermod dev_user1 -c "Desenvolvedor Junior" 
+
+Sem Resultado
+
+(7) sudo usermod dev_user1 -e 2026-12-31
+
+Sem Resultado
+
+(8) sudo usermod -L dev_user1 
+
+Sem Resultado
