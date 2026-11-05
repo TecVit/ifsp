@@ -1,0 +1,52 @@
+{% extends 'layout_dashboard.html' %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/games.css') }}">
+{% endblock %}
+
+{% block title %} Jogos {% endblock %}
+
+{% block content %} 
+    <section class="content">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="aviso">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <h2>Lista dos Jogos</h2>
+        <div class="list">
+            {% if games %}
+                <ol>
+                    {% for game in games %}
+                        <li>{{ game }}</li>
+                        <form action="{{ url_for('deleteGame', name=game) }}" method="POST">
+                            <input type="submit" value="Deletar">
+                        </form>
+                        <br>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <p>Nenhum jogo encontrado</p>
+            {% endif %}
+        </div>
+        
+        <div class="form">
+            <h1>Adicione um Jogo</h1>
+            
+            <form action="{{ url_for('addGame') }}" method="POST">
+                <label for="Nome do Jogo">Nome do Jogo:</label>
+                <input type="text" name="name">
+                <br>
+                
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

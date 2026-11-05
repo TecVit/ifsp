@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %} 
+    <section class="content">
+        <h1>Faça seu Login</h1>
+
+        <form action="{{ url_for('auth') }}" method="POST">
+            <label for="Nome do Usuário">Nome do Usuário:</label>
+            <input type="text" name="user">
+            <br>
+
+            <label for="Senha">Senha:</label>
+            <input type="text" name="password">
+            <br>
+            
+            <button type="submit">Autenticar</button>
+        </form>
+        
+    </section>
+{% endblock %}

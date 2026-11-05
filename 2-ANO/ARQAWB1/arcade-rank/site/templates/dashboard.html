@@ -1,0 +1,53 @@
+{% extends 'layout_dashboard.html' %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block title %} Painel {% endblock %}
+
+{% block content %}
+    <section class="content">
+        <h1>Bem-Vindo ao ArcadeRanking</h1>
+        
+        <h2>Ranking de Jogadores (TOP 10)</h2>
+        <form action="{{ url_for('rankingOrderByGame')}}" method="GET">
+            <select required type="text" name="game">
+                {% if games %}
+                    <option value="">Selecione um Jogo</option>
+                    <option value="todos">Todos os Jogos</option>
+                    {% for game in games %}
+                        <option value="{{ game }}">{{ game }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="">Nenhum jogo encontrado</option>
+                {% endif %}
+            </select>
+            
+            <input type="submit" value="Ordenar por Jogo">
+        </form>
+        
+        {% if players %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Jogo</th>
+                        <th>Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in players %}
+                        <tr>
+                        <td>{{ player["name"] }}</td>
+                            <td>{{ player["game"] }}</td>
+                            <td>{{ player["points"] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nenhum jogador encontrado</p>
+        {% endif %}
+    </section>
+{% endblock %}

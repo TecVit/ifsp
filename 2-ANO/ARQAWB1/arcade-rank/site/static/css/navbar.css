@@ -1,0 +1,55 @@
+/* ===== Navbar ===== */
+.navbar {
+    width: 100%;
+    height: auto;
+    min-height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    background: rgba(0, 32, 61, 0.55); /* --four com transparência, pro blur aparecer */
+    backdrop-filter: blur(12.5px);
+    border-bottom: 1px solid var(--two);
+}
+
+.navbar nav {
+    width: 92.5%;
+    max-width: 1111px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.navbar nav a {
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: unset;
+    letter-spacing: 0.1px;
+    color: var(--stoneEleven);
+    text-decoration: none;
+    margin: 0px 16px 0px 0px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.navbar nav a:hover,
+.navbar nav a:focus {
+    color: var(--two);
+    text-decoration: underline;
+}
+
+@media (max-width: 910px) {
+    .navbar nav a {
+        font-size: 14.5px;
+        margin: 4px 14px 4px 0px;
+    }
+}

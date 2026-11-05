@@ -1,0 +1,113 @@
+/* ===== Filtro por jogo (ranking) ===== */
+.container > form,
+.container .content > form {
+    width: 90%;
+    max-width: 1111px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--four);
+    border: 2px solid var(--two);
+    border-top: 10px solid var(--two);
+    border-radius: 12px;
+    padding: 20px 30px;
+    margin: 10px 0px 25px 0px;
+    box-sizing: border-box;
+}
+
+/* Quando está dentro do .content, ocupa 100% dele */
+.container .content > form {
+    width: 100%;
+}
+
+.container > form select,
+.container .content > form select {
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+    height: 48px;
+    padding: 0px 42px 0px 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--stoneEleven);
+    background-color: var(--three);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234da3ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    border: 1px solid var(--two);
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.container > form select:focus,
+.container .content > form select:focus {
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+.container > form select option,
+.container .content > form select option {
+    background: var(--four);
+    color: var(--stoneEleven);
+}
+
+.container > form input[type="submit"],
+.container .content > form input[type="submit"] {
+    height: 48px;
+    padding: 0px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--stoneEleven);
+    background: var(--one);
+    border: 1px solid var(--one);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.container > form input[type="submit"]:hover,
+.container > form input[type="submit"]:focus,
+.container .content > form input[type="submit"]:hover,
+.container .content > form input[type="submit"]:focus {
+    background: var(--two);
+    border: 1px solid var(--two);
+    color: var(--stoneOne);
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+/* h2 solto direto no container (caso não tenha .content) */
+.container > h2 {
+    width: 90%;
+    max-width: 1111px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: 0.1px;
+    margin: 0px 0px 10px 0px;
+}
+
+@media (max-width: 650px) {
+    .container > form,
+    .container .content > form {
+        padding: 20px 15px;
+    }
+
+    .container > form select,
+    .container .content > form select {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .container > form input[type="submit"],
+    .container .content > form input[type="submit"] {
+        width: 100%;
+    }
+}

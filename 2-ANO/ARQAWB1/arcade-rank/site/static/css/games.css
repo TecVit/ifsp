@@ -1,0 +1,112 @@
+.container .content:has(> .list ol) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0px 30px;
+}
+
+.container .content:has(> .list ol) > h2,
+.container .content:has(> .list ol) > .aviso {
+    flex: 0 0 100%;
+}
+
+.container .content:has(> .list ol) > .list {
+    flex: 1 1 62%;
+    min-width: 0;
+    margin: 20px 0px 0px 0px;
+}
+
+.container .content:has(> .list ol) > .form {
+    flex: 0 0 360px;
+    max-width: 360px;
+    margin: 20px 0px 0px 0px;
+    position: sticky;
+    top: 100px;
+}
+
+.container .content:has(> .list ol) > .list ol {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    gap: 0px;
+}
+
+.container .content:has(> .list ol) > .list ol br {
+    display: none;
+}
+
+.container .content:has(> .list ol) > .list ol li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    padding: 0px 130px 0px 18px;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--three);
+    border: 1px solid var(--two);
+    border-left: 6px solid var(--two);
+    border-radius: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: none;
+}
+
+.container .content:has(> .list ol) > .list ol li:hover,
+.container .content:has(> .list ol) > .list ol li:hover + form {
+    background: var(--three);
+    box-shadow: none;
+}
+
+.container .content:has(> .list ol) > .list ol form {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 0px;
+    margin: 0px 0px 16px 0px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+.container .content:has(> .list ol) > .list ol form:hover {
+    background: none;
+}
+
+.container .content:has(> .list ol) > .list ol form input[type="submit"] {
+    position: absolute;
+    right: 20px;
+    bottom: 32px;
+    transform: translateY(50%);
+}
+
+@media (max-width: 960px) {
+    .container .content:has(> .list ol) > .list,
+    .container .content:has(> .list ol) > .form {
+        flex: 0 0 100%;
+        max-width: 100%;
+        position: static;
+    }
+
+    .container .content:has(> .list ol) > .form {
+        margin: 0px 0px 20px 0px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container .content:has(> .list ol) > .list ol li {
+        padding: 0px 100px 0px 12px;
+        font-size: 15px;
+    }
+
+    .container .content:has(> .list ol) > .list ol form {
+        padding: 0;
+    }
+
+    .container .content:has(> .list ol) > .list ol form input[type="submit"] {
+        right: 12px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}

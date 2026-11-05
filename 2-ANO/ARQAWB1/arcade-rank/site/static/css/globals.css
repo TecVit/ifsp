@@ -1,0 +1,730 @@
+:root {
+    --one: #1565c0;
+    --two: #4da3ff;
+    --three: #00101f;
+    --four: #00203d;
+    --five: #052a4d;
+    --stoneOne: #ffffff;
+    --stoneEleven: #f2f2f2;
+    --backgroundTwo: none;
+    --faixa: linear-gradient(95.99deg,
+        rgba(41, 182, 246, .8) 7.66%,
+        rgba(21, 101, 192, .8) 41.15%,
+        rgba(92, 107, 255, .8) 75.03%,
+        rgba(77, 163, 255, .8) 98.16%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* ===== Base ===== */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: var(--stoneEleven);
+    background-color: var(--three);
+    background-image:
+        linear-gradient(225deg, rgba(21, 101, 192, .25), rgba(21, 101, 192, 0) 60%),
+        linear-gradient(45deg, rgba(77, 163, 255, .12), rgba(77, 163, 255, 0) 55%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* ===== Faixa colorida ===== */
+.linha-rgb {
+    width: 100%;
+    height: 5px;
+    background-image: var(--faixa);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    width: 100%;
+    height: auto;
+    min-height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    padding: 15px 10px;
+    background: rgba(0, 32, 61, 0.55);
+    backdrop-filter: blur(12.5px);
+    border-bottom: 1px solid var(--two);
+}
+
+.navbar nav {
+    width: 92.5%;
+    max-width: 1111px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.navbar nav a {
+    font-size: 15.5px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    color: var(--stoneEleven);
+    text-decoration: none;
+    margin: 0px 16px 0px 0px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.navbar nav a:hover,
+.navbar nav a:focus {
+    color: var(--two);
+    text-decoration: underline;
+}
+
+/* ===== Container principal ===== */
+.container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 125px 0px 50px 0px;
+}
+
+.container .content {
+    width: 90%;
+    max-width: 1111px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content h1,
+.container .content h2 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: 0.1px;
+    margin: 0px 0px 10px 0px;
+}
+
+.container .content p {
+    max-width: 500px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0.1px;
+    margin: 0px 0px 12px 0px;
+}
+
+/* ===== Avisos (flash messages) ===== */
+.container .content .aviso,
+.container > .aviso {
+    width: 100%;
+    max-width: 1111px;
+    margin: 0px 0px 20px 0px;
+}
+
+.container > .aviso {
+    width: 90%;
+}
+
+.container .aviso ul {
+    list-style: none;
+    padding: 14px 18px;
+    background: var(--four);
+    border: 1px solid var(--two);
+    border-left: 6px solid var(--two);
+    border-radius: 8px;
+    box-shadow: 0px 2.5px 12.5px rgba(77, 163, 255, 0.25);
+}
+
+.container .aviso ul li {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    color: var(--stoneEleven);
+    margin: 4px 0px;
+}
+
+/* ===== Card base da lista ===== */
+.container .content .list {
+    width: 100%;
+    height: auto;
+    background: var(--four);
+    border: 2px solid var(--two);
+    border-top: 10px solid var(--two);
+    border-radius: 12px;
+    padding: 25px 40px;
+    margin: 20px 0px 40px 0px;
+    overflow: hidden;
+}
+
+.container .content .list > p {
+    max-width: 100%;
+    padding: 10px 0px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* ===== Lista de jogos (ol: nome | botão) ===== */
+.container .content .list ol {
+    list-style: none;
+    counter-reset: game;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 12px;
+    align-items: stretch;
+}
+
+.container .content .list ol br,
+.container .content .list ul br {
+    display: none;
+}
+
+.container .content .list ol li {
+    counter-increment: game;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    background: var(--three);
+    border: 1px solid var(--two);
+    border-right: none;
+    border-left: 6px solid var(--two);
+    border-radius: 8px 0px 0px 8px;
+    transition: all .1s ease-in-out;
+}
+
+.container .content .list ol li::before {
+    content: counter(game);
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--stoneEleven);
+    background: var(--one);
+    border-radius: 50%;
+}
+
+.container .content .list ol form {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px 0px 10px;
+    background: var(--three);
+    border: 1px solid var(--two);
+    border-left: none;
+    border-radius: 0px 8px 8px 0px;
+    transition: all .1s ease-in-out;
+}
+
+.container .content .list ol li:hover,
+.container .content .list ol li:hover + form {
+    background: var(--four);
+    box-shadow: 0px 2.5px 12.5px rgba(77, 163, 255, 0.25);
+}
+
+/* ===== Lista de jogadores (ul: nome | jogo | pontos | botão) ===== */
+.container .content .list ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr auto;
+    row-gap: 12px;
+    align-items: stretch;
+}
+
+.container .content .list ul li {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    background: var(--three);
+    border-top: 1px solid var(--two);
+    border-bottom: 1px solid var(--two);
+    transition: all .1s ease-in-out;
+}
+
+/* 5 filhos por grupo: li, li, li, form, br */
+.container .content .list ul li:nth-child(5n + 1) {
+    border-left: 6px solid var(--two);
+    border-radius: 8px 0px 0px 8px;
+}
+
+.container .content .list ul li:nth-child(5n + 3) {
+    color: var(--two);
+    font-weight: 800;
+}
+
+.container .content .list ul li:hover {
+    background: var(--four);
+}
+
+.container .content .list ul form {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px 0px 10px;
+    background: var(--three);
+    border: 1px solid var(--two);
+    border-left: none;
+    border-radius: 0px 8px 8px 0px;
+}
+
+/* ===== Botão Deletar (jogos e jogadores) ===== */
+.container .content .list form input[type="submit"] {
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--stoneEleven);
+    background: transparent;
+    border: 1px solid var(--two);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.container .content .list form input[type="submit"]:hover,
+.container .content .list form input[type="submit"]:focus {
+    background: #d32f2f;
+    border: 1px solid #d32f2f;
+    box-shadow: 0px 2.5px 12.5px rgba(211, 47, 47, 0.6);
+}
+
+/* ===== Formulário ===== */
+.container .content .form {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background: var(--four);
+    border: 2px solid var(--two);
+    border-top: 10px solid var(--two);
+    border-radius: 12px;
+    padding: 30px 40px;
+}
+
+.container .content .form h1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0px 0px 20px 0px;
+}
+
+.container .content .form ul {
+    list-style: none;
+    margin: 0px 0px 20px 0px;
+    padding: 12px 16px;
+    background: var(--three);
+    border-left: 6px solid var(--two);
+    border-radius: 8px;
+}
+
+.container .content .form ul li {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 4px 0px;
+}
+
+.container .content .form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content .form br {
+    display: none;
+}
+
+.container .content .form label {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0px 0px 8px 0px;
+}
+
+.container .content .form label:not(:first-of-type) {
+    margin-top: 16px;
+}
+
+/* Inputs e Select */
+.container .content .form input[type="text"],
+.container .content .form select {
+    width: 100%;
+    height: 48px;
+    padding: 0px 14px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--stoneEleven);
+    background: var(--three);
+    border: 1px solid var(--two);
+    border-radius: 8px;
+    outline: none;
+    transition: all .1s ease-in-out;
+}
+
+.container .content .form input[type="text"]:focus,
+.container .content .form select:focus {
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+.container .content .form select,
+.container > form select,
+.container .content > form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 42px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234da3ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+}
+
+.container .content .form select option,
+.container > form select option,
+.container .content > form select option {
+    background: var(--four);
+    color: var(--stoneEleven);
+}
+
+.container .content .form button {
+    width: 100%;
+    height: 52.5px;
+    margin: 20px 0px 0px 0px;
+    font-size: 15px;
+    color: var(--stoneEleven);
+    background: var(--one);
+    border: 1px solid var(--one);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.container .content .form button:hover,
+.container .content .form button:focus {
+    background: var(--two);
+    border: 1px solid var(--two);
+    color: var(--stoneOne);
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+/* ===== Filtro por jogo (ranking) ===== */
+.container > form,
+.container .content > form {
+    width: 90%;
+    max-width: 1111px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--four);
+    border: 2px solid var(--two);
+    border-top: 10px solid var(--two);
+    border-radius: 12px;
+    padding: 20px 30px;
+    margin: 10px 0px 25px 0px;
+}
+
+.container .content > form {
+    width: 100%;
+}
+
+.container > form select,
+.container .content > form select {
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+    height: 48px;
+    padding: 0px 42px 0px 14px;
+    font-size: 15px;
+    color: var(--stoneEleven);
+    background-color: var(--three);
+    border: 1px solid var(--two);
+    border-radius: 8px;
+    outline: none;
+    transition: all .1s ease-in-out;
+}
+
+.container > form select:focus,
+.container .content > form select:focus {
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+.container > form input[type="submit"],
+.container .content > form input[type="submit"] {
+    height: 48px;
+    padding: 0px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--stoneEleven);
+    background: var(--one);
+    border: 1px solid var(--one);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.container > form input[type="submit"]:hover,
+.container > form input[type="submit"]:focus,
+.container .content > form input[type="submit"]:hover,
+.container .content > form input[type="submit"]:focus {
+    background: var(--two);
+    border: 1px solid var(--two);
+    color: var(--stoneOne);
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+.container > h2 {
+    width: 90%;
+    max-width: 1111px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: 0.1px;
+    margin: 0px 0px 10px 0px;
+}
+
+/* ===== Página inicial ===== */
+.container .content:has(> h1) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 55vh;
+}
+
+.container .content > h1 {
+    max-width: 650px;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 52px;
+    letter-spacing: 0.2px;
+    margin: 0px 0px 30px 0px;
+}
+
+.container .content > h1::after {
+    content: '';
+    display: block;
+    width: 90px;
+    height: 5px;
+    border-radius: 3px;
+    background-image: var(--faixa);
+    margin: 20px auto 0px auto;
+}
+
+.container .content > a {
+    width: max-content;
+    min-width: 240px;
+    height: 52.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--stoneEleven);
+    text-decoration: none;
+    background: var(--one);
+    border: 1px solid var(--one);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.container .content > a:hover,
+.container .content > a:focus {
+    background: var(--two);
+    border: 1px solid var(--two);
+    color: var(--stoneOne);
+    box-shadow: 0px 2.5px 12.5px var(--two);
+}
+
+/* ===== Tabela ===== */
+.container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--four);
+    border: 2px solid var(--two);
+    border-top: 10px solid var(--two);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 25px 0px;
+}
+
+.container table th,
+.container table td {
+    padding: 16px 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 15px;
+    letter-spacing: 0.1px;
+}
+
+.container table th {
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--one);
+    color: var(--stoneEleven);
+}
+
+.container table td {
+    font-weight: 500;
+    color: var(--stoneEleven);
+    border-top: 1px solid rgba(77, 163, 255, 0.2);
+}
+
+.container table tbody tr:nth-child(odd) td {
+    background: var(--five);
+}
+
+.container table tbody tr:hover td {
+    background: var(--one);
+}
+
+.container table td form {
+    margin: 0;
+}
+
+/* ===== Footer (com faixa em todas as páginas) ===== */
+footer {
+    width: 100%;
+    padding: 30px 0px 25px 0px;
+    position: relative;
+    background: rgba(0, 32, 61, 0.55);
+    backdrop-filter: blur(12.5px);
+    text-align: center;
+}
+
+footer::before {
+    content: '';
+    width: 100%;
+    height: 5px;
+    background-image: var(--faixa);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+footer p {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    margin: 0;
+    color: var(--stoneEleven);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 960px) {
+    .container .content .list,
+    .container .content .form {
+        padding: 25px 22.5px;
+    }
+}
+
+@media (max-width: 910px) {
+    .navbar nav a {
+        font-size: 14.5px;
+        margin: 4px 14px 4px 0px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container .content h1,
+    .container .content h2 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .container .content > h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .container .content > a {
+        width: 85%;
+        min-width: 0;
+    }
+
+    .container .content .form {
+        max-width: 100%;
+    }
+
+    /* Filtro */
+    .container > form,
+    .container .content > form {
+        padding: 20px 15px;
+    }
+
+    .container > form select,
+    .container .content > form select {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .container > form input[type="submit"],
+    .container .content > form input[type="submit"] {
+        width: 100%;
+    }
+
+    /* Lista de jogos */
+    .container .content .list {
+        padding: 20px 15px;
+    }
+
+    .container .content .list ol li {
+        padding: 14px 12px;
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    .container .content .list ol form {
+        padding: 0px 12px 0px 6px;
+    }
+
+    .container .content .list form input[type="submit"] {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Lista de jogadores: empilha */
+    .container .content .list ul {
+        grid-template-columns: 1fr;
+        row-gap: 0px;
+    }
+
+    .container .content .list ul li {
+        border: 1px solid var(--two);
+        border-bottom: none;
+        border-left: 6px solid var(--two);
+        border-radius: 0px;
+        padding: 12px 15px;
+    }
+
+    .container .content .list ul li:nth-child(5n + 1) {
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    .container .content .list ul form {
+        border: 1px solid var(--two);
+        border-left: 6px solid var(--two);
+        border-radius: 0px 0px 8px 8px;
+        padding: 12px 15px;
+        margin-bottom: 16px;
+    }
+}

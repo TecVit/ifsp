@@ -1,0 +1,70 @@
+{% extends 'layout_dashboard.html' %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/players.css') }}">
+{% endblock %}
+
+{% block title %} Jogadores {% endblock %}
+
+{% block content %} 
+    <section class="content">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="aviso">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <h2>Lista dos Jogadores</h2>
+        <div class="list">
+            {% if players %}
+                <ul>
+                    {% for player in players %}
+                        <div class="player">
+                            <div class="info">
+                                <li>Nome: {{ player["name"] }}</li>
+                                <li>Jogo: {{ player["game"] }}</li>
+                                <li>Pontos: {{ player["points"] }}</li>
+                            </div>
+                            <form action="{{ url_for('deletePlayer', name=player['name'], game=player['game']) }}" method="POST">
+                                <input type="submit" value="Deletar">
+                            </form>
+                        </div>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Nenhum jogador encontrado</p>
+            {% endif %}
+        </div>
+        
+        <div class="form">
+            <h1>Adicione um Jogador</h1>
+            
+            <form action="{{ url_for('addPlayer') }}" method="POST">
+                <label for="Nome do Jogador">Nome do Jogador:</label>
+                <input type="text" name="name">
+                <br>
+
+                <label for="Jogo">Jogo:</label>
+                <select required type="text" name="game">
+                    {% if games %}
+                        <option value="">Selecione um Jogo</option>
+                        {% for game in games %}
+                            <option value="{{ game }}">{{ game }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="">Nenhum jogo encontrado</option>
+                    {% endif %}
+                </select>
+                <br>
+                
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
