@@ -1,0 +1,93 @@
+/* =========================================================================
+   CSS GLOBAL — vale para o app inteiro.
+   Importado uma única vez, no main.jsx.
+   É aqui que ficam o reset, as cores e a tipografia de base.
+   Tudo o que for de um componente específico vai em um .module.css.
+   ========================================================================= */
+
+:root {
+  /* --- paleta (design system Kage) --- */
+  --ink: #05070a;        /* preto da página */
+  --ink-2: #0a0e12;      /* preto elevado, para cartões */
+  --bone: #dfe7e0;       /* branco levemente esverdeado do texto */
+  --bone-dim: #aab4ad;
+  --muted: #78837c;
+  --line: rgba(223, 231, 224, 0.13);
+  --line-soft: rgba(223, 231, 224, 0.07);
+  --vermilion: #e0231c;  /* vermelho do portal torii */
+  --ember: #ff5a3c;
+  --gold: #c9a24a;
+
+  /* --- medidas --- */
+  --pad: clamp(20px, 4vw, 56px);
+  --largura: 1080px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: 'Onest', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Caracteres japoneses usam a fonte japonesa.
+   A classe é global de propósito: aparece em vários componentes. */
+.jp {
+  font-family: 'Noto Sans JP', 'Onest', sans-serif;
+  font-weight: 400;
+}
+
+/* Rótulo pequeno em caixa-alta — o "eyebrow" do design system. */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--vermilion);
+  box-shadow: 0 0 10px var(--vermilion);
+}

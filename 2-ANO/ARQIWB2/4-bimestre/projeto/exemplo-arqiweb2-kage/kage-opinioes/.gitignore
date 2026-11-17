@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# As chaves ficam fora do repositório.
+# Lembre: se o Netlify fizer o build pelo GitHub, ele NÃO vai enxergar
+# este arquivo — as variáveis precisam ser cadastradas no painel dele.
+.env
+.env.*
+!.env.example
+
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
